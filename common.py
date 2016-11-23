@@ -10,10 +10,21 @@ import random
 #
 # @table: list of list
 # @generated: string - generated random string (unique in the @table)
-def generate_random(table):
+def generate():
+    
+    lower = 'abcdefghijklmnopqrstuvwxyz'
+    upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    special = '<>#&@{}<>^!%/=:_'
+    number = '1234567890'
 
-    generated = ''
-
-    # your code
+    generated = random.choice(lower) + random.choice(upper) + random.choice(number) + random.choice(number) + random.choice(lower) + random.choice(upper) + '#&'
 
     return generated
+
+def generate_random(table):
+
+    generated = generate()
+    while generated in table:
+        generated = generate()
+    
+    return generate

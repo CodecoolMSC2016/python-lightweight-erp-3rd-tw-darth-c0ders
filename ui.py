@@ -34,7 +34,9 @@ def print_table(table, title_list):
 # @label: string - label of the result
 def print_result(result, label):
 
-    # your code
+    print(label)
+    for i in result:
+        print(i)
 
     pass
 
@@ -54,7 +56,11 @@ def print_result(result, label):
 # @exit_message: string - the last option with (0) (example: "Back to main menu")
 def print_menu(title, list_options, exit_message):
 
-    # your code
+    print(title)
+    for i in range(0,len(list_options)):
+        print("(" + str(i+1) + ") " + list_options[i])
+    print("(0) " + exit_message)
+
 
     pass
 
@@ -66,6 +72,7 @@ def print_menu(title, list_options, exit_message):
 # @inputs: list of string - list of the received values from the user
 def get_inputs(list_labels, title):
     inputs = []
+    inputs = input(list_labels[0])
 
     # your code
 
@@ -77,6 +84,6 @@ def get_inputs(list_labels, title):
 # @message: string - the error message
 def print_error_message(message):
 
-    # your code
+    print(message)
 
     pass
