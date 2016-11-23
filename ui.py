@@ -13,7 +13,17 @@
 # @title_list: list of strings - the head of the table
 def print_table(table, title_list):
 
-    # your code
+    print("/-----------------------------------\")
+    header = ""
+    for i in title_list:
+        header = header + "|   " + i + "   |"
+    print(header)
+    for row in table:
+        column_text = ""
+        for column in table[row]:
+            column_text = column_text + "|--------|   " + table[row][column] + "    ")
+        column_text = column_text + "|"
+    print("/-----------------------------------\")
 
     pass
 
