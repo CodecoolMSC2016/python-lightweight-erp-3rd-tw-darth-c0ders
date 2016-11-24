@@ -12,28 +12,32 @@
 # @table: list of lists - the table to print out
 # @title_list: list of strings - the head of the table
 
-def joci(table, cid):
-    cmax = 0
-    for column in range(len(table[int(cid)])):
-        if len(str(column)) > cmax:
-            cmax = len(str(column))
-    return int(cmax/2)
+#def print_table(table, title_list):
+#    max_column_lenght = 0
+#    
+#    for row in table:
+#        print_column = ""
+#        for column in row:
+#            if max_column_lenght < len(column):
+#                max_column_lenght = len(column)
+#        for column in row:     
+#            a = max_column_lenght
+#            b = a - len(column)
+#            c = (b/2) + 2
+#
+#            print_column += " "*int(c) + column + " "*int(c)
+#            
+#        print(print_column)
+#        max_column_lenght = 0
+#    pass
 
 def print_table(table, title_list):
-    print("jsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadkf")
-    print("/-----------------------------------\ ")
-    header = ""
-    for i in title_list:
-        header = header + "|   " + i + "   |"
-    print(header)
-    for row in range(len(table)):
-        column_text = ""
-        for column in range(len(table[int(row)])):
-            column_text = column_text + "|" + " "*joci(table, column) + table[int(row)][column] + " "*joci(table,column) 
-        print(column_text)
-    print("/-----------------------------------\ ")
-
-    pass
+    line = ""
+    for row in table:
+        for column in row:
+            line = line + "--" + column
+        print(line)
+        line = ""
 
 
 # This function needs to print result of the special functions
