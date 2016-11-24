@@ -22,11 +22,41 @@ common = SourceFileLoader("common", current_file_path + "/../common.py").load_mo
 # user need to go back to the main menu from here
 # we need to reach the default and the special functions of this module from the module menu
 #
+def choose_crm():
+    inputs = ui.get_inputs(["Please enter a number: "], "")
+    option = inputs[0]
+    if option == "1":
+        show_table(data_manager.get_table_from_file("./store/games.csv"))
+    elif option == "2":
+        add(table, id_)
+    elif option == "3":
+        remove(table, id_)
+    elif option == "4":
+        update(table, id_)
+    elif option == "5":
+        get_counts_by_manufacturers(table)
+    elif option == "6":
+        get_average_by_manufacturer(table, manufacturer)
+    elif option == "0":
+        pass
+    else:
+        raise KeyError("There is no such option.")
+
+def handle_menu_crm():
+    options = ["Show table",
+               "Add new record",
+               "Remove record",
+               "Update record",
+               "Get counts by manufacturers",
+               "Get average by manufacturer"]
+
+    ui.print_menu("CRM menu", options, "Exit program")
+
+
 def start_module():
 
-    # you code
-
-    pass
+    handle_menu_crm()
+    choose_crm()
 
 
 # print the default table of records from the file

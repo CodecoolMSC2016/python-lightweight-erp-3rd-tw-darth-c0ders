@@ -57,7 +57,6 @@ def handle_menu_store():
 
 def start_module():
 
-    # you code
     handle_menu_store()
     choose_store()
     

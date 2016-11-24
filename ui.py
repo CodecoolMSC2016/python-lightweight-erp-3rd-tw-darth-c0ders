@@ -12,6 +12,7 @@
 # @table: list of lists - the table to print out
 # @title_list: list of strings - the head of the table
 
+<<<<<<< HEAD
 #def print_table(table, title_list):
 #    max_column_lenght = 0
 #    
@@ -38,6 +39,16 @@ def print_table(table, title_list):
             line = line + "--" + column
         print(line)
         line = ""
+=======
+
+
+def print_table(table, title_list):
+    
+    print(table)
+
+
+    pass
+>>>>>>> ed53e99ce43ffece817a1a3b2b2a848b34d93682
 
 
 # This function needs to print result of the special functions
