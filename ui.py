@@ -11,19 +11,27 @@
 #
 # @table: list of lists - the table to print out
 # @title_list: list of strings - the head of the table
-def print_table(table, title_list):
 
-    print("/-----------------------------------\")
+def joci(table, cid):
+    cmax = 0
+    for column in range(len(table[int(cid)])):
+        if len(str(column)) > cmax:
+            cmax = len(str(column))
+    return int(cmax/2)
+
+def print_table(table, title_list):
+    print("jsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadkf")
+    print("/-----------------------------------\ ")
     header = ""
     for i in title_list:
         header = header + "|   " + i + "   |"
     print(header)
-    for row in table:
+    for row in range(len(table)):
         column_text = ""
-        for column in table[row]:
-            column_text = column_text + "|--------|   " + table[row][column] + "    ")
-        column_text = column_text + "|"
-    print("/-----------------------------------\")
+        for column in range(len(table[int(row)])):
+            column_text = column_text + "|" + " "*joci(table, column) + table[int(row)][column] + " "*joci(table,column) 
+        print(column_text)
+    print("/-----------------------------------\ ")
 
     pass
 
@@ -86,4 +94,8 @@ def print_error_message(message):
 
     print(message)
 
+    pass
+
+def text_format():
+    
     pass

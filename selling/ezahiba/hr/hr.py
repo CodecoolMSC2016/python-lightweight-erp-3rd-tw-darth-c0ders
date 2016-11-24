@@ -1,10 +1,8 @@
 # data structure:
 # id: string
 #     Unique and random generated (at least 2 special char()expect: ';'), 2 number, 2 lower and 2 upper case letter)
-# title: string
-# manufacturer: string
-# price: number (dollar)
-# in_stock: number
+# name: string
+# birth_date: number (year)
 
 
 # importing everything you need
@@ -23,52 +21,20 @@ common = SourceFileLoader("common", current_file_path + "/../common.py").load_mo
 # user need to go back to the main menu from here
 # we need to reach the default and the special functions of this module from the module menu
 #
-
-def choose_store():
-    inputs = ui.get_inputs(["Please enter a number: "], "")
-    option = inputs[0]
-    if option == "1":
-        show_table(data_manager.get_table_from_file("./store/games.csv"))
-    elif option == "2":
-        add(table, id_)
-    elif option == "3":
-        remove(table, id_)
-    elif option == "4":
-        update(table, id_)
-    elif option == "5":
-        get_counts_by_manufacturers(table)
-    elif option == "6":
-        get_average_by_manufacturer(table, manufacturer)
-    elif option == "0":
-        pass
-    else:
-        raise KeyError("There is no such option.")
-
-def handle_menu_store():
-    options = ["Show table",
-               "Add new record",
-               "Remove record",
-               "Update record",
-               "Get counts by manufacturers",
-               "Get average by manufacturer"]
-
-    ui.print_menu("Store menu", options, "Exit program")
-
-
 def start_module():
 
     # you code
-    handle_menu_store()
-    choose_store()
-    
+
+    pass
 
 
 # print the default table of records from the file
 #
 # @table: list of lists
 def show_table(table):
-    title_list = ["id", "title", "manufacturer", "price", "in_stock"]
-    ui.print_table(table, title_list)
+
+    # your code
+
     pass
 
 
@@ -108,18 +74,18 @@ def update(table, id_):
 # special functions:
 # ------------------
 
-# the question: How many different kinds of game are available of each manufacturer?
-# return type: a dictionary with this structure: { [manufacturer] : [count] }
-def get_counts_by_manufacturers(table):
+# the question: Who is the oldest person ?
+# return type: list of strings (name or names if there are two more with the same value)
+def get_oldest_person(table):
 
     # your code
 
     pass
 
 
-# the question: What is the average amount of games in stock of a given manufacturer?
-# return type: number
-def get_average_by_manufacturer(table, manufacturer):
+# the question: Who is the closest to the average age ?
+# return type: list of strings (name or names if there are two more with the same value)
+def get_persons_closest_to_average(table):
 
     # your code
 
