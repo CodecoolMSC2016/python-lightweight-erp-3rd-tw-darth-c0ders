@@ -22,8 +22,11 @@ common = SourceFileLoader("common", current_file_path + "/../common.py").load_mo
 # we need to reach the default and the special functions of this module from the module menu
 #
 def start_module():
+    
+    handle_menu_hr()
+    choose_hr()
 
-    # you code
+    
 
     pass
 
@@ -31,9 +34,42 @@ def start_module():
 # print the default table of records from the file
 #
 # @table: list of lists
+def choose_hr():
+    inputs = ui.get_inputs(["Please enter a number: "], "")
+    option = inputs[0]
+    if option == "1":
+        show_table(data_manager.get_table_from_file("./store/games.csv"))
+    elif option == "2":
+        add(table, id_)
+    elif option == "3":
+        remove(table, id_)
+    elif option == "4":
+        update(table, id_)
+    elif option == "5":
+        get_counts_by_manufacturers(table)
+    elif option == "6":
+        get_average_by_manufacturer(table, manufacturer)
+    elif option == "0":
+        pass
+    else:
+        raise KeyError("There is no such option.")
+
+def handle_menu_hr():
+    options = ["Show table",
+               "Add new record",
+               "Remove record",
+               "Update record",
+               "Get counts by manufacturers",
+               "Get average by manufacturer"]
+
+    ui.print_menu("HR menu", options, "Exit program")
+
+
+
+
 def show_table(table):
 
-    # your code
+
 
     pass
 
