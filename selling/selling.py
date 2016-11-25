@@ -29,13 +29,13 @@ def choose_selling():
     inputs = ui.get_inputs(["Please enter a number: "], "")
     option = inputs[0]
     if option == "1":
-        show_table(data_manager.get_table_from_file("./store/games.csv"))
+        show_table(data_manager.get_table_from_file("./selling/sellings.csv"))
     elif option == "2":
-        add(table, id_)
+        add(data_manager.get_table_from_file("./selling/sellings.csv"))
     elif option == "3":
-        remove(table, id_)
+        remove(data_manager.get_table_from_file("./selling/sellings.csv"),ui.get_inputs(["Enter id: "], ""))
     elif option == "4":
-        update(table, id_)
+        update(data_manager.get_table_from_file("./selling/sellings.csv"),ui.get_inputs(["Enter id: "], ""))
     elif option == "5":
         get_counts_by_manufacturers(table)
     elif option == "6":
@@ -66,9 +66,8 @@ def start_module():
 #
 # @table: list of lists
 def show_table(table):
-
-    # your code
-
+    title_list = ["id", "title", "manufacturer", "price", "in_stock"]
+    ui.print_table(table, title_list)
     pass
 
 
@@ -77,7 +76,16 @@ def show_table(table):
 # @table: list of lists
 def add(table):
 
-    # your code
+    inputs = ui.get_inputs(["Enter new record(Title, Publisher, Price, In stock): "], "")
+    inputs = inputs.split(",")
+    game_row = []
+    game_row.append(common.generate()) 
+    game_row.append(inputs[0])
+    game_row.append(inputs[1])
+    game_row.append(inputs[2])
+    game_row.append(inputs[3])
+    table.append(game_row)
+    data_manager.write_table_to_file("./selling/sellings.csv", table)
 
     return table
 
@@ -88,9 +96,13 @@ def add(table):
 # @id_: string
 def remove(table, id_):
 
-    # your code
+    for column in range(len(table)):
+        if table[column][0] == id_:
+            table.pop(column)
+    data_manager.write_table_to_file("./selling/sellings.csv", table)
 
     return table
+
 
 
 # Update the record in @table having the id @id_ by asking the new data from the user,
@@ -100,7 +112,26 @@ def remove(table, id_):
 # @id_: string
 def update(table, id_):
 
-    # your code
+    selected_id = ""
+    for column in table:
+        if column[0] == id_:
+            selected_id = column[0]
+
+    inputs = ui.get_inputs(["Enter new values(Title, Publisher, Price, In stock): "], "")
+    inputs = inputs.split(",")
+
+    game_row = []
+    game_row.append(selected_id) 
+    game_row.append(inputs[0])
+    game_row.append(inputs[1])
+    game_row.append(inputs[2])
+    game_row.append(inputs[3])
+
+    for column_id in range(len(table)):
+        if table[column_id][0] == selected_id:
+            table[column_id] = game_row
+
+    data_manager.write_table_to_file("./selling/sellings.csv", table)
 
     return table
 
